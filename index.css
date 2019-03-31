@@ -1,0 +1,116 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.usr {
+  font-size: 24px;
+  color: lightblue;
+  padding-bottom: 4px;
+  text-transform: capitalize;
+  padding-left: 10px;
+  width: 50%;
+  display:inline-block;
+}
+
+.time {
+  position: relative;
+  right: -10px;
+  font-size: 18px;
+  color: lightblue;
+  padding-bottom: 4px;
+  text-transform: capitalize;
+  float: right;
+  width: 10%;
+  display: inline;
+}
+
+.msg {
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+body {
+  background-color: lightblue;
+}
+
+form {
+  /* background: #d0d0d0; */
+  padding: 3px;
+  content-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+form input {
+  border: 0;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  /* width: 90%; */
+  /* margin-right: .5%; */
+}
+
+#m {
+  width: 83.5%;
+  position: relative;
+  left: 10px;
+}
+
+#usr {
+  /* padding-left: 5px; */
+  position: relative;
+  top: 0;
+  left: 5px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+#send {
+  position: relative;
+  right: 4px;
+  bottom: 6px;
+}
+
+.far {
+  color: white;
+}
+
+form button {
+  width: 5%;
+  text-align: center;
+  background: rgb(130, 224, 255);
+  border: none;
+  padding: 10px;
+  margin-right: auto;
+  float: right;
+  border-radius: 5px;
+}
+
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 15px;
+  margin: 25px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}

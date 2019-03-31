@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Emergency Chat App</title>
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div id="messages"></div>
+  <form action="">
+    <input id="usr" placeholder="Name" />
+    <input id="m" autocomplete="off" />
+    <button id="send"><i class="far fa-paper-plane fa-2x"></i></button>
+  </form>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    function newMessage(usr, msg) {
+      var time = new Date();
+      return `
+      <div class="card">
+        <div class="usr"> ` + usr +
+          ` </div><span class = "time"> `
+          + time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })+
+  `</span>
+        <hr style="display: block; text-align:center;height: 2px; border :0px; border-top: 2px solid lightblue;" width="100%">
+        <br>
+        <p class="msg"> ` + msg + ` </p>
+      </div>
+      `
+    }
+
+    $(function() {
+      var socket = io();
+      $('form').submit( function (e) {
+        e.preventDefault(); //prevents page reload
+        if ($('#m').val() !== "" && $('#usr').val() !== "") {
+        socket.emit('chat message', $('#usr').val(), $('#m').val());
+        $('#m').val('');
+      }
+        return false;
+      });
+
+      socket.on('chat message', function(usr, msg) {
+        $('#messages').append(newMessage(usr, msg));
+      });
+    });
+  </script>
+</body>
+
+</html>
